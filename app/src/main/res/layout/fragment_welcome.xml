@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.udacity.shoestore.ui.WelcomeFragment.WelcomeClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/welcomeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Sneaker Store!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="The best place to shop the freshest kicks."
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Head on in to see the best range of shoes and sneakers from around the world at the best prices online."
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeMessage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/toInstructionsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let's shop"
+            android:onClick="@{() -> clickHandler.onContinueClicked()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

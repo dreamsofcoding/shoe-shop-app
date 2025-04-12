@@ -20,7 +20,12 @@ app:startDestination="@id/loginFragment">
 <fragment
     android:id="@+id/welcomeFragment"
     android:label="Welcome"
+    android:name="com.udacity.shoestore.ui.WelcomeFragment"
     tools:layout="@layout/fragment_welcome" />
+
+    <action
+        android:id="@+id/nav_to_instructions"
+        app:destination="@id/instructionsFragment" />
 
 <fragment
     android:id="@+id/instructionsFragment"
