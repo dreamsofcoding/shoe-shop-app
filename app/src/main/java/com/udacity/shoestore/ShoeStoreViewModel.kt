@@ -4,8 +4,9 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.udacity.shoestore.models.Shoe
 
-class LoginViewModel : ViewModel() {
+class ShoeStoreViewModel : ViewModel() {
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -36,5 +37,13 @@ class LoginViewModel : ViewModel() {
         }
 
         return isValid
+    }
+
+    private val _shoes = MutableLiveData<MutableList<Shoe>>(mutableListOf())
+    val shoes: LiveData<MutableList<Shoe>> get() = _shoes
+
+    fun addShoe(shoe: Shoe) {
+        _shoes.value?.add(shoe)
+        _shoes.value = _shoes.value
     }
 }

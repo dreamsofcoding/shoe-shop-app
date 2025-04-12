@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/shoeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{shoe.name}'
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/shoeDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{`Size: ` + shoe.size + ` | Company: ` + shoe.company}'
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/shoeName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/shoeDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{shoe.description}'
+            app:layout_constraintTop_toBottomOf="@id/shoeDetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
