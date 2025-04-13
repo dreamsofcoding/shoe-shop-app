@@ -1,64 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/nav_graph"
-app:startDestination="@id/loginFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
 
-<fragment
-    android:id="@+id/loginFragment"
-    android:label="Login"
-    android:name="com.udacity.shoestore.ui.LoginFragment"
-    tools:layout="@layout/fragment_login">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.udacity.shoestore.ui.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
 
-    <action
-        android:id="@+id/nav_to_welcome"
-        app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/nav_to_welcome"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
 
-</fragment>
+    </fragment>
 
-<fragment
-    android:id="@+id/welcomeFragment"
-    android:label="Welcome"
-    android:name="com.udacity.shoestore.ui.WelcomeFragment"
-    tools:layout="@layout/fragment_welcome">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.udacity.shoestore.ui.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome">
 
-    <action
-        android:id="@+id/nav_to_instructions"
-        app:destination="@id/instructionsFragment" />
+        <action
+            android:id="@+id/nav_to_instructions"
+            app:destination="@id/instructionsFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
 
-</fragment>
+    </fragment>
 
-<fragment
-    android:id="@+id/instructionsFragment"
-    android:label="Instructions"
-    android:name="com.udacity.shoestore.ui.InstructionsFragment"
-    tools:layout="@layout/fragment_instructions">
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.udacity.shoestore.ui.InstructionsFragment"
+        android:label="Instructions"
+        tools:layout="@layout/fragment_instructions">
 
-    <action
-        android:id="@+id/nav_to_shoe_list"
-        app:destination="@id/shoeListFragment" />
+        <action
+            android:id="@+id/nav_to_shoe_list"
+            app:destination="@id/shoeListFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
 
-</fragment>
+    </fragment>
 
-<fragment
-    android:id="@+id/shoeListFragment"
-    android:label="Shoe List"
-    android:name="com.udacity.shoestore.ui.ShoeListFragment"
-    tools:layout="@layout/fragment_shoe_list">
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.udacity.shoestore.ui.ShoeListFragment"
+        android:label="Shoe List"
+        tools:layout="@layout/fragment_shoe_list">
 
-    <action
-        android:id="@+id/nav_to_shoe_detail"
-        app:destination="@id/shoeDetailFragment" />
+        <action
+            android:id="@+id/nav_to_shoe_detail"
+            app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
 
-</fragment>
+        <action
+            android:id="@+id/nav_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
 
-<fragment
-    android:id="@+id/shoeDetailFragment"
-    android:label="Shoe Detail"
-    android:name="com.udacity.shoestore.ui.ShoeDetailFragment"
-    tools:layout="@layout/fragment_shoe_detail">
+    </fragment>
 
-</fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.ui.ShoeDetailFragment"
+        android:label="Shoe Detail"
+        tools:layout="@layout/fragment_shoe_detail">
+
+        <action
+            android:id="@+id/return_to_shoe_list"
+            app:destination="@id/shoeListFragment"
+            app:enterAnim="@anim/nav_enter"
+            app:exitAnim="@anim/nav_exit"
+            app:popEnterAnim="@anim/nav_pop_enter"
+            app:popExitAnim="@anim/nav_pop_exit" />
+
+    </fragment>
 
 </navigation>

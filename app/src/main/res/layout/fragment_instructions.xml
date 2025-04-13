@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="handler"
             type="com.udacity.shoestore.ui.InstructionsFragment.InstructionsClickHandler" />
@@ -15,48 +16,52 @@
 
         <TextView
             android:id="@+id/instructionTitle"
+            style="@style/StyledText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="How to Use the App"
+            android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/instructionDetailsLineOne"
+            style="@style/StyledText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="To manage your inventory, go to the Shoe List screen and add new shoes."
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/instructionTitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/instructionTitle" />
 
         <TextView
             android:id="@+id/instructionDetailsLineTwo"
+            style="@style/StyledText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="You can view and update your list anytime."
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/instructionDetailsLineOne"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/instructionDetailsLineOne" />
 
         <Button
             android:id="@+id/toListButton"
+            style="@style/StyledButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Go to Shoe List"
-            android:onClick="@{() -> handler.onNavigateToShoeList()}"
             android:layout_marginTop="32dp"
+            android:onClick="@{() -> handler.onNavigateToShoeList()}"
+            android:text="Go to Shoe List"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -20,7 +20,6 @@ class ShoeStoreViewModel : ViewModel() {
     fun validateInputs(): Boolean {
         var isValid = true
 
-        // Email validation
         if (email.value.isNullOrBlank() || !Patterns.EMAIL_ADDRESS.matcher(email.value!!).matches()) {
             _emailError.value = "Enter a valid email"
             isValid = false
@@ -28,7 +27,6 @@ class ShoeStoreViewModel : ViewModel() {
             _emailError.value = null
         }
 
-        // Password validation
         if (password.value.isNullOrBlank() || password.value!!.length < 6) {
             _passwordError.value = "Password must be at least 6 characters"
             isValid = false
@@ -37,6 +35,16 @@ class ShoeStoreViewModel : ViewModel() {
         }
 
         return isValid
+    }
+
+    fun onEmailChanged(text: CharSequence) {
+        email.value = text.toString()
+        _emailError.value = null
+    }
+
+    fun onPasswordChanged(text: CharSequence) {
+        password.value = text.toString()
+        _passwordError.value = null
     }
 
     private val _shoes = MutableLiveData<MutableList<Shoe>>(mutableListOf())

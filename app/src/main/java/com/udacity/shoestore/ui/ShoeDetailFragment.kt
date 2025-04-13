@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -12,7 +13,6 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeStoreViewModel
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
-import kotlin.getValue
 
 class ShoeDetailFragment : Fragment() {
 
@@ -27,9 +27,6 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.shoe = shoe
-        binding.viewModel = viewModel
-
-
         return binding.root
     }
 
@@ -37,16 +34,29 @@ class ShoeDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupNavigation()
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(R.id.return_to_shoe_list)
+                }
+            }
+        )
+
     }
 
     private fun setupNavigation() {
         binding.cancelButton.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().popBackStack()
         }
 
         binding.saveButton.setOnClickListener {
-            shoe.size = shoe.size.toString().toDoubleOrNull() ?: 0.0
-            findNavController().navigateUp()
+            binding.shoe?.let { shoe ->
+            viewModel.addShoe(shoe)
+            val action = ShoeDetailFragmentDirections.returnToShoeList()
+            findNavController().navigate(action)
+            }
         }
     }
 }

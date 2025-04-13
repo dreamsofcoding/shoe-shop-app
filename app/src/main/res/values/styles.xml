@@ -13,7 +13,24 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="StyledButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/colorTextButton</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">4dp</item>
+    </style>
+
+    <style name="StyledText" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+
 
 </resources>
