@@ -42,8 +42,20 @@ class ShoeStoreViewModel : ViewModel() {
     private val _shoes = MutableLiveData<MutableList<Shoe>>(mutableListOf())
     val shoes: LiveData<MutableList<Shoe>> get() = _shoes
 
+    init {
+        mockShoes()
+    }
+
+    fun mockShoes() {
+        val sampleShoes = listOf(
+            Shoe("Air Max 90", 9.0, "Nike", "Classic running shoe with cushioned sole."),
+        )
+
+        _shoes.value = sampleShoes.toMutableList()
+    }
+
     fun addShoe(shoe: Shoe) {
         _shoes.value?.add(shoe)
-        _shoes.value = _shoes.value
     }
+
 }

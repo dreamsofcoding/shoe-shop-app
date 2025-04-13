@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
         <variable
             name="shoe"
@@ -11,7 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/shoeCompany"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{shoe.company}'
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/shoeName"
@@ -20,7 +30,7 @@
             android:text='@{shoe.name}'
             android:textStyle="bold"
             android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoeCompany"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -28,22 +38,21 @@
             android:id="@+id/shoeDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text='@{`Size: ` + shoe.size + ` | Company: ` + shoe.company}'
+            android:text='@{`Size: ` + shoe.size}'
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/shoeName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="4dp"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/shoeDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text='@{shoe.description}'
+            android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/shoeDetails"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="4dp"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

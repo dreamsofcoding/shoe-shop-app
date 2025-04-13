@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.ShoeStoreViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeBinding
 
 class ShoeListFragment : Fragment() {
 
@@ -36,20 +37,23 @@ class ShoeListFragment : Fragment() {
 
     private fun setupNavigation() {
         binding.addShoeButton.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.navToShoeDetail())
+            val action = ShoeListFragmentDirections.navToShoeDetail()
+            findNavController().navigate(action)
         }
 
         viewModel.shoes.observe(viewLifecycleOwner) { shoes ->
             binding.shoeListContainer.removeAllViews()
 
-            for (shoe in shoes) {
-                val shoeBinding = DataBindingUtil.inflate<com.udacity.shoestore.databinding.ItemShoeBinding>(
+            shoes.forEach { shoe ->
+                val shoeBinding = DataBindingUtil.inflate<ItemShoeBinding>(
                     layoutInflater,
                     R.layout.item_shoe,
                     binding.shoeListContainer,
                     false
                 )
+
                 shoeBinding.shoe = shoe
+
                 binding.shoeListContainer.addView(shoeBinding.root)
             }
         }

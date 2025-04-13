@@ -56,6 +56,7 @@ app:startDestination="@id/loginFragment">
 <fragment
     android:id="@+id/shoeDetailFragment"
     android:label="Shoe Detail"
+    android:name="com.udacity.shoestore.ui.ShoeDetailFragment"
     tools:layout="@layout/fragment_shoe_detail">
 
 </fragment>
